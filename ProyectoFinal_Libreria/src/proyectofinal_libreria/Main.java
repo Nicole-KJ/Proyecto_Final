@@ -13,7 +13,7 @@ public class Main {
                 + "/n5. Libros disponibles."
                 + "/n0. Salir del programa."));
         
-        if (opcion == 1) {
+            if (opcion == 1) {
             // Añadir clase y metodos correspondientes para completar proceso//
         } else if (opcion == 2) {
             // Añadir clase y metodos correspondientes para completar proceso//
