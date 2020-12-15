@@ -1,10 +1,19 @@
 package proyectofinal_libreria;
+import javax.swing.JOptionPane;
 public class InformacionCliente {
-    private String nombre = "";
-    private String apellido1 = "";
-    private String apellido2 = "";
-    private int cedula = 0;
-    private int edad = 0;
+    private String nombre;
+    private String apellido1;
+    private int idCliente;
+    private int cedula;
+    private String fechaNacimiento;
+    
+    public InformacionCliente(){
+        this.nombre="";
+        this.apellido1="";
+        this.idCliente=0;
+        this.cedula=0;
+        this.fechaNacimiento="";
+    }
 
     public String getNombre() {
         return nombre;
@@ -22,12 +31,12 @@ public class InformacionCliente {
         this.apellido1 = apellido1;
     }
 
-    public String getApellido2() {
-        return apellido2;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setApellido2(String apellido2) {
-        this.apellido2 = apellido2;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public int getCedula() {
@@ -38,12 +47,43 @@ public class InformacionCliente {
         this.cedula = cedula;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    InformacionCliente datos[]=new InformacionCliente[10];
+    
+    public void LlenarInfoCliente (){
+        int i;
+        for(i=0;i<datos.length;i++){
+            InformacionCliente c=new InformacionCliente();
+            c.setNombre(JOptionPane.showInputDialog(null,
+                    "Ingrese el nombre del cliente" ));
+            c.setApellido1(JOptionPane.showInputDialog(null,
+                    "Ingrese el apellido del cliente"));
+            c.setCedula(Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese la cédula del cliente")));
+            c.setFechaNacimiento(JOptionPane.showInputDialog(null,
+                    "Ingrese la fecha de nacimiento del cliente"));
+            c.setIdCliente(Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese un ID para el cliente")));
+            datos[i]=c;
+        }
+    }
+    public void mostar(){
+        int i;
+        for(i=0;i<datos.length;i++){
+            JOptionPane.showMessageDialog(null,
+                    "***Información Cliente***"
+                            + "\nNombre Completo: " +datos[i].getNombre()+" "+datos[i].getApellido1()
+                            + "\nCédula: " +datos[i].getCedula()
+                            + "\nFecha de Nacimiento: " +datos[i].getFechaNacimiento()
+                            + "\nID: " +datos[i].getIdCliente());
+        }
     }
     
 }
